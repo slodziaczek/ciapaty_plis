@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class DataRepository
+    public class DataRepository
     {
         public DataRepository()
         {
             dataContext = new DataContext();
         }
 
-        public DataContext dataContext { get; }
+        public DataContext dataContext { get; set; }
 
 
 
@@ -33,7 +33,7 @@ namespace TP_zad1
             interfejs.WypelnijListeOpisowStanow(this);
 
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool stworzKlienta(Klient kl)
         {
             if (!dataContext.klienci.Contains(kl)) //as not to duplicate information
@@ -43,7 +43,7 @@ namespace TP_zad1
             }
             return false;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool dodajFilm(Film fl)
         {
             if (!dataContext.filmy.ContainsValue(fl)) //as to avoid runtime error
@@ -53,7 +53,7 @@ namespace TP_zad1
             }
             return false;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool dodajWypozyczenie(Wypozyczenie wyp)
         {
             if (!dataContext.wypozyczenia.Contains(wyp))
@@ -63,18 +63,18 @@ namespace TP_zad1
             }
             return false;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool dodajStan(OpisStanu os)
         {
-            if (!dataContext.opisyStanow.ContainsValue(os)) //as not to duplicate information
+            if (!dataContext.opisyStanow.Contains(os)) //as not to duplicate information
             {
-                dataContext.opisyStanow.Add(dataContext.opisyStanow.Count + 1, os);
+                dataContext.opisyStanow.Add(os);
                 return true;
             }
             return false;
         }
 
-
+        //-------------PRZETESTOWANA-----------------------
         public Klient getKlient(Klient k)
         {
             if (dataContext.klienci.Contains(k))
@@ -86,19 +86,19 @@ namespace TP_zad1
             }
             return null;
         }
-
-        public Film getFilm(int ID)
+        
+        public Film getFilm(int ID) //<------------------------------------------DO PRZETESTOWANIA
         {
             if (dataContext.filmy.ContainsKey(ID))
             {
-                foreach (int id in dataContext.filmy.Keys)
+                foreach (int id in dataContext.filmy.Keys)                           
                 {
                     if (id.Equals(ID)) return dataContext.filmy[id];
                 }
             }
             return null;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public Film getFilm(Film fl)
         {
             if (dataContext.filmy.ContainsValue(fl))
@@ -110,20 +110,20 @@ namespace TP_zad1
             }
             return null;
         }
-
-        public OpisStanu getOpisStanu(int ID)
+        //-------------PRZETESTOWANA-----------------------
+        public OpisStanu getOpisStanu(OpisStanu os)
         {
-            if (dataContext.filmy.ContainsKey(ID))
+            if (dataContext.opisyStanow.Contains(os))
             {
-                foreach (int id in dataContext.opisyStanow.Keys)
+                foreach (OpisStanu stan in dataContext.opisyStanow)
                 {
-                    if (id.Equals(ID)) return dataContext.opisyStanow[id];
+                    if (stan == os) return os;
                 }
             }
             return null;
         }
 
-
+        //-------------PRZETESTOWANA-----------------------
         public Wypozyczenie getWypozyczenie(Wypozyczenie wyp)
         {
             if (dataContext.wypozyczenia.Contains(wyp))
@@ -136,7 +136,7 @@ namespace TP_zad1
             return null;
         }
 
-        public List<Klient> getKlienci()
+        public List<Klient> getKlienci() //<------------------------------------------DO PRZETESTOWANIA
         {
             return dataContext.klienci;
         }
@@ -146,17 +146,22 @@ namespace TP_zad1
             return dataContext.filmy;
         }
 
-        public ObservableCollection<Wypozyczenie> getWypozyczenia()
+        public ObservableCollection<Wypozyczenie> Wypozyczenia  //<------------------------------------------DO PRZETESTOWANIA
         {
-            return dataContext.wypozyczenia;
+            get
+            {
+                return dataContext.wypozyczenia;
+            }
+            
         }
 
-        public Dictionary<int, OpisStanu> getOpisyStanow()
+        public List<OpisStanu> getOpisyStanow()
         {
             return dataContext.opisyStanow;
         }
 
-        public bool usunKlienta(Klient kl)
+        //-------------PRZETESTOWANA-----------------------
+        public bool usunKlienta(Klient kl) 
         {
             foreach (Klient klient in dataContext.klienci)
             {
@@ -170,33 +175,32 @@ namespace TP_zad1
         }
 
 
-        public bool usunFilm(Film fl)
+        public bool usunFilm(Film fl)//<------------------------------------------DO PRZETESTOWANIA
         {
             foreach (KeyValuePair<int, Film> film in dataContext.filmy)
             {
                 if (film.Value._tytul == fl._tytul)
                 {
                     dataContext.filmy.Remove(film.Key);
-                                    
                 }
             }
 
             return false;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool usunOpisStanu(OpisStanu os)
         {
-            foreach (KeyValuePair<int, OpisStanu> opisStanu in dataContext.opisyStanow)
+            foreach (OpisStanu opisStanu in dataContext.opisyStanow)
             {
-                if (opisStanu.Value._dataZakupu == os._dataZakupu)
+                if (opisStanu == os)
                 {
-                    dataContext.opisyStanow.Remove(opisStanu.Key);
+                    dataContext.opisyStanow.Remove(os);
+                    return true;
                 }
-            
-        }
+            }
             return false;
         }
-
+        //-------------PRZETESTOWANA-----------------------
         public bool usunWypozecznie(Wypozyczenie wyp)
         {
             foreach (Wypozyczenie wypozyczenie in dataContext.wypozyczenia)

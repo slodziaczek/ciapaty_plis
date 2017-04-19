@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class DataContext
+    public class DataContext
     {
         public DataContext()
         {
             klienci = new List<Klient>();
             filmy = new Dictionary<int, Film>();
-            opisyStanow = new Dictionary<int,OpisStanu>();
+            opisyStanow = new List<OpisStanu>();
             wypozyczenia = new ObservableCollection<Wypozyczenie>();
             
         }
@@ -21,7 +21,7 @@ namespace TP_zad1
         public List<Klient> klienci;
         public Dictionary<int, Film> filmy;
         public ObservableCollection<Wypozyczenie> wypozyczenia;
-        public Dictionary<int, OpisStanu> opisyStanow;
+        public List<OpisStanu> opisyStanow;
 
     }
 }

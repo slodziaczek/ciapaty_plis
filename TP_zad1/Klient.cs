@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class Klient
+    public class Klient
     {
         //konstruktor
         private static int numerObiektu = 0;
@@ -18,6 +18,7 @@ namespace TP_zad1
             _nazwisko = nazwisko;
             _numerTel = numerTel;
             _email = email;
+
         }
 
 
@@ -30,8 +31,8 @@ namespace TP_zad1
 
         public string wyswietlKlienta()
         {
-           
-            return ("Imie: " + _imie + ", nazwisko: " + _nazwisko + ", numer telefonu: " + _numerTel + ", email: " + _email + "\n");
+            Console.WriteLine("Dane klienta: ");
+            return (" imie: " + _imie + ", nazwisko: " + _nazwisko + ", numer telefonu: " + _numerTel + ", email: " + _email + "\n");
         }
 
         //public string imie

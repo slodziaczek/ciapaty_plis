@@ -1,0 +1,7 @@
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\obj\Debug\TP_zad1.Tests.csprojResolveAssemblyReference.cache
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\bin\Debug\TP_zad1.Tests.dll
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\bin\Debug\TP_zad1.Tests.pdb
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\bin\Debug\TP_zad1.exe
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\bin\Debug\TP_zad1.pdb
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\obj\Debug\TP_zad1.Tests.dll
+C:\Users\a3h61906\Desktop\c#\niechRzyjeWolnaPolska-master\TP_zad1.Tests\obj\Debug\TP_zad1.Tests.pdb

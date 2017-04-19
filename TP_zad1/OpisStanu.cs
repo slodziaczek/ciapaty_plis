@@ -6,28 +6,26 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class OpisStanu
+    public class OpisStanu
     {
-       
+      //  private static int id = 0;
 
         public OpisStanu(string opisFilmu, string dataZakupu)
         {
-            
+            //id = ++id;
             _opisFilmu = opisFilmu;
             _dataZakupu = dataZakupu;
         }
 
 
-
-        public string _opisFilmu { get; }
-        public string _dataZakupu { get; }
-      
+        private string _opisFilmu { get; set; }
+        private string _dataZakupu { get; set; }
 
         public string wyswietlOpisStanu()
         {
-        
+            Console.WriteLine("Opis stanu: ");
 
-            return ("Opis filmu: " + _opisFilmu + ",  data zakupu: " + _dataZakupu + "\n");
+            return ("Opis filmu " + _opisFilmu + "  data zakupu: " + _dataZakupu + "\n");
 
         }
     }

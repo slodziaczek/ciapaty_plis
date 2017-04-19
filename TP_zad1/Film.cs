@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class Film
+    public class Film
     {
        // private static int numerObiektu = 0 ;
         public Film(string tytul, string rezyser, string gatunek)
@@ -23,9 +23,9 @@ namespace TP_zad1
 
         public string wyswietlFilmy()
         {
-            
+            Console.WriteLine("Film: ");
 
-            return ("Tytul filmu: " + _tytul + ", rezyser: " + _rezyser + ", gatunek: " + _gatunek + "\n");
+            return ("Tytul filmu: " + _tytul + " rezyser: " + _rezyser + " gatunek: " + _gatunek + "\n");
 
         }
 

@@ -6,50 +6,41 @@ using System.Threading.Tasks;
 
 namespace TP_zad1
 {
-    class WypelnianieStalymi : Interfejs
+    public class WypelnianieStalymi : Interfejs
     {
         public void WypelnijKolekcjeWypozyczen(DataRepository dataRepo)
         {
-            DateTime dataWypozyczenia = DateTime.Now;
-            DateTime terminZwrotuData = dataWypozyczenia.AddDays(30);
-            string terminZwrotuString;
-            terminZwrotuString = terminZwrotuData.ToString("dd/MM/yyyy");
-
+            DateTime now = DateTime.Now;
+            DateTime dt = now.AddDays(5);
             {
                 for (int i = 0; i < dataRepo.dataContext.filmy.Count; i++)
                 {
-                    dataRepo.dodajWypozyczenie(new Wypozyczenie(dataRepo.dataContext.filmy[i + 1], dataRepo.dataContext.klienci[i], terminZwrotuString));
-                 //   Console.WriteLine("Wypozyczenie: " + dataRepo.dataContext.wypozyczenia[i].WypiszWypozyczenia());
+                    dataRepo.dodajWypozyczenie(new Wypozyczenie(dataRepo.dataContext.filmy[i + 1], dataRepo.dataContext.klienci[i], dt));
+                    Console.WriteLine(dataRepo.dataContext.wypozyczenia[i].WypiszWypozyczenia());
                 }
             }
         }
 
         public void WypelnijListeKlientow(DataRepository dataRepo)
         {
-            Klient klient1 = new Klient("chuj", "dupa", "cycki", "cipka");
-            dataRepo.stworzKlienta(klient1);
-            Klient klient2 = new Klient("cos", "tam", "cos", "cos tam");
-            dataRepo.stworzKlienta(klient2);
-            //   Console.WriteLine("Klient: " + klient.wyswietlKlienta());
+            Klient kl = new Klient("Emil", "Szczepaniak", "577960967", "emil.szczepaniak.it@gmail.com");
+            dataRepo.stworzKlienta(kl);
+            Console.WriteLine(kl.wyswietlKlienta());
 
         }
 
         public void WypelnijListeOpisowStanow(DataRepository dataRepo)
         {
-            OpisStanu opisStanu = new OpisStanu ( "zajebista ksiazka", "o Twojej starej");
+            OpisStanu opisStanu = new OpisStanu("zajebista ksiazka", "o Twojej starej");
             dataRepo.dodajStan(opisStanu);
-            OpisStanu opisStanu2 = new OpisStanu("zajebista ksiazka", "o Twojej starej");
-            dataRepo.dodajStan(opisStanu2);
-            // Console.WriteLine("Opis stanu: " + opisStanu.wyswietlOpisStanu());
+            Console.WriteLine(opisStanu.wyswietlOpisStanu());
         }
 
         public void WypelnijSlownikFilmow(DataRepository dataRepo)
         {
             Film film = new Film("Twoja stara", "Twoj Stary", "zubr");
             dataRepo.dodajFilm(film);
-            Film film2 = new Film("Twoja stara", "Twoj Stary", "zubr");
-            dataRepo.dodajFilm(film2);
-            //  Console.WriteLine("Film: " + film.wyswietlFilmy());
+            Console.WriteLine(film.wyswietlFilmy());
         }
     }
 }
