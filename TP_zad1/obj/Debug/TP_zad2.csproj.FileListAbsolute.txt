@@ -1,0 +1,6 @@
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\bin\Debug\TP_zad1.exe.config
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\bin\Debug\TP_zad1.exe
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\bin\Debug\TP_zad1.pdb
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\obj\Debug\TP_zad2.csprojResolveAssemblyReference.cache
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\obj\Debug\TP_zad1.exe
+C:\Users\emalgpa\Desktop\zad2_tp\ciapaty_plis\TP_zad1\obj\Debug\TP_zad1.pdb
